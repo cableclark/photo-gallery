@@ -3,24 +3,27 @@
 @section('content')
 <h3> Create album</h3>
 
-    {{Form::open(['action'=> 'AlbumsController@store', 'method'=>'POST',
+    {{Form::open(['action'=> 'PhotosController@store', 'method'=>'POST',
     'enctype'=>'multipart/form-data', "class"=>"field"])}}
     <div class="field">
         <div class="control">
-        {{Form::text('name', '', ['placeholder' => 'Album Name', "class"=>"input"])}}
+        {{Form::text('title', '', ['placeholder' => 'Album Name', "class"=>"input"])}}
         </div>
     </div>
     <div class="field">
         <div class="control">
-            {{Form::textarea ('description', '', ['placeholder'=>'Album description', "class"=>"textarea "])}}
+            {{Form::textarea ('photo_description', '', ['placeholder'=>'Album description', "class"=>"textarea "])}}
         </div>
     </div>  
+
+        {{Form::hidden ('album_id', $album_id)}}
+          
     <div class="field">
         <div class="control">     
 
             <div class="file">
                  <label class="file-label">
-                    <input class="file-input" type="file" name="cover_image">
+                    <input class="file-input" type="file" name="photo">
                     <span class="file-cta">
                         <span class="file-icon">
                         <i class="fas fa-upload"></i>
